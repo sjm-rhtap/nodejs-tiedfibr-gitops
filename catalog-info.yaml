@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: nodejs-tiedfibr-gitops
+  description: This is GitOps manifest for nodejs-tiedfibr   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=nodejs-tiedfibr
+    backstage.io/kubernetes-id: nodejs-tiedfibr 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: nodejs-tiedfibr
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:nodejs-tiedfibr
